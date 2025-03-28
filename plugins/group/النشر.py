@@ -13,7 +13,7 @@ import asyncio
 from .. import jmthon_cmd,jmdB, DEV_CHAT
 
 @jmthon_cmd(pattern="نشر")
-async def gcast(event):
+async def nshr(event):
     args = event.text.split(" ", 3)
     delay = float(args[1])
     count = int(args[2])
@@ -42,7 +42,7 @@ async def gcast(event):
 
 
 @jmthon_cmd(pattern="ايقاف (النشر|نشر)")
-async def stop_spam(e):
+async def stop_nshr(e):
     if jmdB.get_key("NSHR"):
         jmdB.del_key("NSHR")
         await e.respond("**⌔∮ تم إيقاف النشر الوقتي بنجاح!**")
