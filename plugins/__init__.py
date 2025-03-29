@@ -12,6 +12,8 @@ from jmthon import *
 
 NAME = OWNER_NAME = JmdB.get_key("NAME")
 LOG_CHAT = JmdB.get_config("LOG_CHAT")
+TAG_CHAT = JmdB.get_config("TAG_CHAT")
+
 DEV_CHAT = [-1001632670555]
 DEVLIST = [1280124974]
 
