@@ -10,7 +10,7 @@
 """
 
 import asyncio
-from .. import jmthon_cmd,jmdB, DEV_CHAT
+from .. import jmthon_cmd,jmdB, DEV_CHAT, LOG_CHAT, TAG_CHAT
 
 @jmthon_cmd(pattern="نشر")
 async def nshr(event):
@@ -31,7 +31,7 @@ async def nshr(event):
             if x.is_group:
                 chat = x.id
                 try:
-                    if chat not in DEV_CHAT:
+                    if chat not in DEV_CHAT and chat not in TAG_CHAT and chat not in LOG_CHAT:
                         await event.client.send_message(chat, msg)
                         await asyncio.sleep(1)
                         done += 1
