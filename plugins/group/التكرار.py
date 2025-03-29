@@ -59,7 +59,7 @@ async def spamnormal(e):
     await asyncio.wait([asyncio.create_task(e.respond(spam_message)) for i in range(counter)])
 
 
-@jmthon_cmd(pattern="(مكرر|نشر)")
+@jmthon_cmd(pattern="مكرر")
 async def spam_with_delay(e):
     try:
         args = e.text.split(" ", 3)
