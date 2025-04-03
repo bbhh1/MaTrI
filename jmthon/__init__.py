@@ -4,6 +4,7 @@ import sys
 import jmthon.core.ubclient
 from .config import Var
 from .core.client import JmthonClient
+from telethon.sessions import StringSession
 from .core.session import both_session
 from .core.logger import *
 from database import jmdB, JmdB
@@ -14,7 +15,7 @@ bot_token = JmdB.get_config("BOT_TOKEN")
 
 
 jmubot = jmthon_bot = JmthonClient(
-        session=Var.SESSION,
+        session=StringSession(str(Var.SESSION))
         app_version=version,
         device_model="Jmthon",
        )
