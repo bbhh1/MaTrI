@@ -58,26 +58,44 @@ async def spamnormal(e):
     await e.try_delete()
     await asyncio.wait([asyncio.create_task(e.respond(spam_message)) for i in range(counter)])
 
-
-@jmthon_cmd(pattern="مكرر")
-async def spam_with_delay(e):
+@jmthon_cmd(pattern="كرر")
+async def spam_with_delay(event):
     try:
-        args = e.text.split(" ", 3)
-        delay = float(args[1])
-        count = int(args[2])
-        msg = str(args[3])
-    except BaseException:
-        return await e.edit("**⌔∮ الاستخدام :** `{HNDLR}سبام_مؤقت` <الوقت بين الارسال> <عدد الارسال> <الرسالة>\n\n❃ مثال: `.سبام_مؤقت 1.5 5 مرحبا`")
-    
-    JmdB.set_key(f"spam_{e.chat_id}", True)
-    await e.try_delete()
-    
-    for i in range(count):
-        if not JmdB.get_key(f"spam_{e.chat_id}"):
-            return
-        await e.respond(msg)
-        await asyncio.sleep(delay)
-    JmdB.del_key(f"spam_{e.chat_id}")
+        args = event.text.split()
+        if event.is_reply:
+            if len(args) < 3:
+                raise ValueError
+            delay = float(args[1])
+            count = int(args[2])
+            replied_msg = await event.get_reply_message()
+            message = replied_msg.text or ""
+            media = replied_msg.media
+        else:
+            if len(args) < 3:
+                raise ValueError
+            delay = float(args[1])
+            count = int(args[2])
+            message = ' '.join(args[3:]) if len(args) >=4 else ""
+            media = event.media
+        
+        JmdB.set_key(f"spam_{event.chat_id}", True)
+        await event.delete()
+        
+        for _ in range(count):
+            if not JmdB.get_key(f"spam_{event.chat_id}"):
+                break
+            if media:
+                await event.respond(file=media, message=message)
+            else:
+                await event.respond(message)
+            await asyncio.sleep(delay)
+            
+    except (ValueError, IndexError):
+        await event.edit("**❌ استخدام خاطئ!**\nالاستخدام: `.كرر [الوقت] [العدد]` بالرد على الرسالة أو `.كرر [الوقت] [العدد] [النص]`")
+    except Exception as e:
+        logger.error(f"خطأ في التكرار: {e}")
+    finally:
+        JmdB.del_key(f"spam_{event.chat_id}")
 
 
 @jmthon_cmd(pattern="ايقاف (مكرر|مؤقت)")
