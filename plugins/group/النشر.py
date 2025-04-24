@@ -10,7 +10,7 @@
 """
 
 import asyncio
-from .. import jmthon_cmd,jmdB, DEV_CHAT, LOG_CHAT, TAG_CHAT
+from .. import jmthon_cmd,JmdB, DEV_CHAT, LOG_CHAT, TAG_CHAT
 
 
 async def send_to_chats(client, message, media, chats):
