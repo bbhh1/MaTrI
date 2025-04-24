@@ -93,7 +93,7 @@ async def spam_with_delay(event):
     except (ValueError, IndexError):
         await event.edit("**❌ استخدام خاطئ!**\nالاستخدام: `.كرر [الوقت] [العدد]` بالرد على الرسالة أو `.كرر [الوقت] [العدد] [النص]`")
     except Exception as e:
-        logger.error(f"خطأ في التكرار: {e}")
+        LOGS.error(f"خطأ في التكرار: {e}")
     finally:
         JmdB.del_key(f"spam_{event.chat_id}")
 
