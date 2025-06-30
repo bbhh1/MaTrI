@@ -1,18 +1,15 @@
 FROM python:3.10-slim-buster
 
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y git curl python3-pip ffmpeg mediainfo p7zip && \
+    apt-get install -y ffmpeg mediainfo p7zip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install -g npm@8.19.4 && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
 
-RUN python3 -m pip install --upgrade pip
+COPY requirements.txt /app/
 
-COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN pip3 install --disable-pip-version-check --default-timeout=100 -r requirements.txt
+COPY . /app/
 
 CMD ["python3","-m","jmthon"]
