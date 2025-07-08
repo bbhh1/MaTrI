@@ -87,8 +87,8 @@ async def nshr(event):
 
 @jmthon_cmd(pattern="ايقاف (النشر|نشر)")
 async def stop_nshr(e):
-    if jmdB.get_key("NSHR"):
-        jmdB.del_key("NSHR")
+    if JmdB.get_key("NSHR"):
+        JmdB.del_key("NSHR")
         await e.respond("**⌔∮ تم إيقاف النشر الوقتي بنجاح!**")
     else:
         await e.respond("**⌔∮أمر النشر ليس قيد التنفيذ حاليًا.**")
