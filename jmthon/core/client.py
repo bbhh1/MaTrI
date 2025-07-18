@@ -84,7 +84,7 @@ class JmthonClient(TelegramClient):
             setattr(self.me, "phone", None)
             me = self.full_name
         if self.uid in blacklisted_users:
-            self.log.error(f"({me} - {self.uid}) ~ لا يمكنك أستخدام سورس أنت محظور بسبب مخالفتك سياسة أستخدام السورس @Jmthon")
+            self.log.error(f"({me} - {self.uid}) ~ لا يمكنك أستخدام سورس أنت محظور بسبب مخالفتك سياسة أستخدام السورس @VV333K")
             sys.exit(1)
         if self._log_at:
             self.logger.info(f"❃ تم تسجيل الدخول كـ {me}")
