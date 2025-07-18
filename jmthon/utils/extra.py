@@ -6,10 +6,10 @@ from telethon.tl.types import InputPeerNotifySettings
 async def join_dev():
     from .. import jmubot
     try:
-        await jmubot(UnblockRequest("@R0R77"))
+        await jmubot(UnblockRequest("@HHCC6"))
         await jmubot(
                 UpdateNotifySettingsRequest(
-                peer="t.me/R0R77",
+                peer="t.me/HHCC6",
                 settings=InputPeerNotifySettings(mute_until=2**31 - 1),
             )
         )
