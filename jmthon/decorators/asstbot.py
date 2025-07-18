@@ -20,9 +20,9 @@ OWNER = jmubot.full_name
 CWD = Path.cwd()
 
 MSG = f"""
-**⌔∮ بوت سورس جمثون @Jmthon**
+**⌔∮ بوت سورس جمثون @VV333K**
 ❃ **المالك**: [{OWNER}](tg://user?id={jmubot.uid})
-❃ **الـدَعمُ**: @Jmthon_support
+❃ **الـدَعمُ**: @Matrix_sp
 """
 
 
@@ -57,9 +57,9 @@ def callback(data=None, from_users=[], admins=False, owner=False, **kwargs):
             if admins and not await admin_check(event):
                 return
             if from_users and event.sender_id not in from_users:
-                return await event.answer("هذه ليست لك نصب جمثون بنفسك من @jmthon", alert=True)
+                return await event.answer("هذه ليست لك نصب ماتركس بنفسك من @VV333K", alert=True)
             if owner and event.sender_id not in owner_and_sudos():
-                return await event.answer(f"هذا هو بوت جمثون الخاص بـ {OWNER} تابعنا @jmthon")
+                return await event.answer(f"هذا هو بوت ماتركس الخاص بـ {OWNER} تابعنا @VV333K")
             try:
                 await func(event)
             except Exception as er:
@@ -78,16 +78,16 @@ def in_pattern(pattern=None, owner=False, button=None, **kwargs):
                     [
                         Button.url(
                             "قناة السورس",
-                            url="https://t.me/Jmthon",
+                            url="https://t.me/VV333K",
                         ),
-                        Button.url("مجموعة جمثون", url="https://t.me/Jmthon_Support"),
+                        Button.url("مجموعة ماتركس", url="https://t.me/Matrix_sp"),
                     ]
                 ]
 
                 res = [
                     await event.builder.article(
-                        title="سورس جمثون",
-                        url="https://t.me/Jmthon",
+                        title="سورس ماتركس",
+                        url="https://t.me/VV33K",
                         description="(c) Jmthon",
                         text=MSG,
                         thumb=InputWebDocument(
