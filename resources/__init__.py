@@ -1,3 +1,3 @@
 from .blacklist import blacklisted_users
 LIST = {}
-DEVLIST = [1280124974, 1234567890]
+DEVLIST = [6705059542, 6705059542]
