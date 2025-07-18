@@ -134,7 +134,7 @@ def jmthon_cmd(pattern=None, tgbot=tgbot, **kwargs):
                         Button.url("الموقع", "http://jmthon.deno.dev"),
                         Button.url(
                             "البوت",
-                            "https://t.me/Jmthon",
+                            "https://t.me/VV333K",
                         ),
                     ],
                 )
@@ -156,7 +156,7 @@ def jmthon_cmd(pattern=None, tgbot=tgbot, **kwargs):
                 )
                 MakeHtml = f"""
 <img src='resources/Jmthon.jpg'/>
-<a href='https://Jmthon_Support.t.me'>أبلاغ عن المشكلة</a>
+<a href='https://t.me/Matrix_sp.t.me'>أبلاغ عن المشكلة</a>
 <br /><br />
 <ul>
 <li>الأصدار: {version} </li>
