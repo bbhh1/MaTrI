@@ -44,11 +44,11 @@ with contextlib.suppress(ImportError):
 LOGS.info(
     """
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        بدء تشغيل سورس جمثـون   
+        بدء تشغيل سورس مـاتركي   
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     """
 )
 
 LOGS.info(f"إصدار البايثون ➤ {platform.python_version()}")
 LOGS.info(f"إصدار مكتبة التيليثون ➤ {__version__} [الطبقة: {LAYER}]")
-LOGS.info(f"إصدار جمثون ➤ 1.0.0 [{platform.system()}]")
+LOGS.info(f"إصدار ماتركس ➤ 1.0.0 [{platform.system()}]")
